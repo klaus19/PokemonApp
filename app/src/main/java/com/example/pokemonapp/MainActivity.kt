@@ -26,5 +26,12 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        lifecycleScope.launchWhenCreated {
+            viewModel.sharedFlow.collectLatest { data->
+
+                binding.txtSharedFlow.text=data
+            }
+        }
+
     }
 }
